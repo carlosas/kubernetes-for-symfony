@@ -45,19 +45,6 @@ WORK IN PROGRESS :warning: **This project is not yet functional**
 > ```
 
 `curl http://localhost:8001/api/v1/proxy/namespaces/default/pods/nginx-1423793266-vxhnv/`
-> <!DOCTYPE html>
-> <html>
-> <head>
-> <title>Welcome to nginx!</title>
-> <style>
->     body {
->         width: 35em;
->         margin: 0 auto;
->         font-family: Tahoma, Verdana, Arial, sans-serif;
->     }
-> </style>
-> </head>
-> <body>
 > <h1>Welcome to nginx!</h1>
 > <p>If you see this page, the nginx web server is successfully installed and
 > working. Further configuration is required.</p>
@@ -68,5 +55,3 @@ WORK IN PROGRESS :warning: **This project is not yet functional**
 > <a href="http://nginx.com/">nginx.com</a>.</p>
 > 
 > <p><em>Thank you for using nginx.</em></p>
-> </body>
-> </html>
