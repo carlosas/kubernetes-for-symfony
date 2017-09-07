@@ -10,6 +10,8 @@ WORK IN PROGRESS :warning: **This project is not yet functional**
 
 ## Cheat sheet:
 
+### Run minikube with nginx
+
 `minikube start`
 > Kubectl is now configured to use the cluster.
 
@@ -33,3 +35,38 @@ WORK IN PROGRESS :warning: **This project is not yet functional**
 
 `kubectl proxy`
 > Starting to serve on 127.0.0.1:8001
+
+### Check nginx
+
+`kubectl get pods`
+> ```
+> NAME                     READY     STATUS    RESTARTS   AGE
+> nginx-1423793266-vxhnv   1/1       Running   0          2h
+> ```
+
+`curl http://localhost:8001/api/v1/proxy/namespaces/default/pods/nginx-1423793266-vxhnv/`
+> <!DOCTYPE html>
+> <html>
+> <head>
+> <title>Welcome to nginx!</title>
+> <style>
+>     body {
+>         width: 35em;
+>         margin: 0 auto;
+>         font-family: Tahoma, Verdana, Arial, sans-serif;
+>     }
+> </style>
+> </head>
+> <body>
+> <h1>Welcome to nginx!</h1>
+> <p>If you see this page, the nginx web server is successfully installed and
+> working. Further configuration is required.</p>
+> 
+> <p>For online documentation and support please refer to
+> <a href="http://nginx.org/">nginx.org</a>.<br/>
+> Commercial support is available at
+> <a href="http://nginx.com/">nginx.com</a>.</p>
+> 
+> <p><em>Thank you for using nginx.</em></p>
+> </body>
+> </html>
