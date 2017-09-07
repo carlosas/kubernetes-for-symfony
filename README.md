@@ -55,3 +55,17 @@ WORK IN PROGRESS :warning: **This project is not yet functional**
 > <a href="http://nginx.com/">nginx.com</a>.</p>
 > 
 > <p><em>Thank you for using nginx.</em></p>
+
+### Stop nginx
+
+`kubectl get pods`
+> ```
+> NAME                     READY     STATUS    RESTARTS   AGE
+> nginx-1423793266-vxhnv   1/1       Running   0          2h
+> ```
+
+`kubectl delete deployment nginx`
+> deployment "nginx" deleted
+
+`kubectl get pods`
+> No resources found.
