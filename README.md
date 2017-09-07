@@ -105,8 +105,10 @@ Podemos eliminar el POD generado. El deployment lo apagará e iniciará uno nuev
 Por el contrario podemos eliminar el Deployment completo.
 
 `kubectl get deployments`
+> ```
 > NAME               DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 > nginx-deployment   1         1         1            1           8m
+> ```
 
 `kubectl delete deployment nginx-deployment`
 > deployment "nginx-deployment" deleted
