@@ -10,7 +10,7 @@ WORK IN PROGRESS :warning: **This project is not yet functional**
 
 ## Cheat sheet:
 
-### Run minikube with nginx
+### Run minikube
 
 `minikube start`
 > Kubectl is now configured to use the cluster.
@@ -24,27 +24,31 @@ WORK IN PROGRESS :warning: **This project is not yet functional**
 > minikube    Ready     1d      v1.7.0
 > ```
 
-`kubectl run nginx --image=nginx --port=80`
-> deployment "nginx" created
+### Create POD nginx-server
 
-`kubectl get deployments`
+`kubectl create -f nginx.yaml `
+> pod "nginx" created
+
+`kubectl get pods`
 > ```
-> NAME      DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
-> nginx     1         1         1            1           18s
+> NAME      READY     STATUS              RESTARTS   AGE
+> nginx     0/1       ContainerCreating   0          3m
 > ```
+
+### Start the proxy
 
 `kubectl proxy`
 > Starting to serve on 127.0.0.1:8001
 
-### Check nginx
+### Check POD nginx
 
 `kubectl get pods`
 > ```
-> NAME                     READY     STATUS    RESTARTS   AGE
-> nginx-1423793266-vxhnv   1/1       Running   0          2h
+> NAME   READY     STATUS    RESTARTS   AGE
+> nginx  1/1       Running   0          2h
 > ```
 
-`curl http://localhost:8001/api/v1/proxy/namespaces/default/pods/nginx-1423793266-vxhnv/`
+`curl http://localhost:8001/api/v1/proxy/namespaces/default/pods/nginx/`
 > <h1>Welcome to nginx!</h1>
 > <p>If you see this page, the nginx web server is successfully installed and
 > working. Further configuration is required.</p>
@@ -60,11 +64,11 @@ WORK IN PROGRESS :warning: **This project is not yet functional**
 
 `kubectl get pods`
 > ```
-> NAME                     READY     STATUS    RESTARTS   AGE
-> nginx-1423793266-vxhnv   1/1       Running   0          2h
+> NAME    READY     STATUS    RESTARTS   AGE
+> nginx   1/1       Running   0          2h
 > ```
 
-`kubectl delete deployment nginx`
+`kubectl delete pod nginx`
 > deployment "nginx" deleted
 
 `kubectl get pods`
