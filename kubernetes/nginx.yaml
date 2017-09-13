@@ -1,19 +1,4 @@
 apiVersion: v1
-kind: Service
-metadata:
-  name: nginx
-  labels:
-    app: symfony
-spec:
-  selector:
-    app: symfony
-    tier: backend
-  ports:
-  - protocol: TCP
-    port: 80
-    targetPort: http
----
-apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: nginx-claim
@@ -65,4 +50,19 @@ spec:
       - name: symfony-logs-claim
         persistentVolumeClaim:
           claimName: symfony-logs-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  labels:
+    app: symfony
+spec:
+  selector:
+    app: symfony
+    tier: backend
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: http
 status: {}
