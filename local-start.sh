@@ -31,8 +31,8 @@ echo ""
 echo ""
 sleep 1
 echo "STARTING..."
-sleep 1
 echo ""
+sleep 1
 
 if [[ $(minikube status | grep 'minikube: Running') == 'minikube: Running' ]]; then
   echo "WARNING: Minikube is already running"
@@ -45,8 +45,13 @@ fi
 if [[ $(minikube status | grep 'minikube: Running') == 'minikube: Running' ]]; then
   echo ""
   sleep 1
-  kubectl create -f kubernetes/mysql.yaml
-  kubectl create -f kubernetes/nginx.yaml
+
+for yaml in kubernetes/*.yaml
+do
+  kubectl create -f $yaml
+done
+
+#  kubectl create -f kubernetes/nginx.yaml
   echo ""
   sleep 1
   echo ""

@@ -30,8 +30,8 @@ echo "               Kubernetes-for-Symfony"
 echo ""
 echo ""
 echo "STOPPING..."
-sleep 1
 echo ""
+sleep 1
 
 if [[ $(minikube status | grep 'minikube: Stopped') == 'minikube: Stopped' ]]; then
   echo "ERROR: Minikube is not running"
@@ -43,8 +43,7 @@ if [[ $(minikube status | grep 'minikube: Running') == 'minikube: Running' ]]; t
   kubectl delete pods --all
   kubectl delete persistentvolumeclaims --all
   kubectl delete persistentvolumes --all
-
-  sleep 1
   echo ""
+  sleep 1
   minikube stop
 fi
