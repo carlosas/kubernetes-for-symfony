@@ -7,3 +7,26 @@
 WORK IN PROGRESS :warning: **This project is not yet functional**
 
 ---
+
+## Quick guide
+
+### Install
+
+* `./local-create-volumes.sh`
+
+* `minikube ssh`
+
+* `cat "Ola ke ase" > index.html`
+
+* <kbd>Cntrl</kbd>+<kbd>c</kbd>
+
+* `./local-start.sh`
+
+### Check
+
+* `kubectl exec -it nginx-pod -- /bin/bash`
+
+* `apt update && apt install curl`
+
+* `curl localhost`
+> Ola ke ase
