@@ -30,40 +30,26 @@ echo "               Kubernetes-for-Symfony"
 echo ""
 echo ""
 sleep 1
-echo "STARTING..."
+echo "DELETING PERSISTENT VOLUMES..."
 echo ""
 
-if [[ $(minikube status | grep 'minikube: Running') == 'minikube: Running' ]]; then
-  echo "WARNING: Minikube is already running"
-fi
-
-if [[ $(minikube status | grep 'minikube: Stopped') == 'minikube: Stopped' ]]; then
+MKWASOFF=false
+if [[ $(minikube status | grep 'minikube: Running') != 'minikube: Running' ]]
+then
+  MKWASOFF=true
   minikube start
+  echo ""
 fi
 
-if [[ $(minikube status | grep 'minikube: Running') == 'minikube: Running' ]]; then
+if [[ $(minikube status | grep 'minikube: Running') == 'minikube: Running' ]]
+then
+  kubectl delete persistentvolumeclaims --all
+  kubectl delete persistentvolumes --all
   echo ""
 
-  for yaml in kubernetes/*.yaml
-  do
-    kubectl create -f $yaml
-  done
-
-  echo ""
-  echo ""
-  echo "NODES:"
-  echo ""
-  kubectl get nodes
-  echo ""
-  echo ""
-  echo "SERVICES:"
-  echo ""
-  kubectl get services
-  echo ""
-  echo ""
-  echo "PODS:"
-  echo ""
-  kubectl get pods
-  echo ""
-
+  if [ $MKWASOFF == true ]
+  then
+    minikube stop
+    echo ""
+  fi
 fi

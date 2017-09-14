@@ -30,40 +30,35 @@ echo "               Kubernetes-for-Symfony"
 echo ""
 echo ""
 sleep 1
-echo "STARTING..."
+echo "INSTALLING..."
 echo ""
 
-if [[ $(minikube status | grep 'minikube: Running') == 'minikube: Running' ]]; then
-  echo "WARNING: Minikube is already running"
-fi
+if [[ $(minikube status | grep 'minikube: Stopped') == 'minikube: Stopped' ]]
+then
 
-if [[ $(minikube status | grep 'minikube: Stopped') == 'minikube: Stopped' ]]; then
   minikube start
-fi
-
-if [[ $(minikube status | grep 'minikube: Running') == 'minikube: Running' ]]; then
   echo ""
 
-  for yaml in kubernetes/*.yaml
+fi
+
+if [[ $(minikube status | grep 'minikube: Running') == 'minikube: Running' ]]
+then
+
+  for yaml in kubernetes/volumes/*.yaml
   do
     kubectl create -f $yaml
   done
 
   echo ""
   echo ""
-  echo "NODES:"
+  echo "PERSISTENT VOLUMES:"
   echo ""
-  kubectl get nodes
-  echo ""
-  echo ""
-  echo "SERVICES:"
-  echo ""
-  kubectl get services
+  kubectl get persistentvolumes
   echo ""
   echo ""
-  echo "PODS:"
+  echo "PERSISTENT VOLUME CLAIMS:"
   echo ""
-  kubectl get pods
+  kubectl get persistentvolumeclaims
   echo ""
 
 fi

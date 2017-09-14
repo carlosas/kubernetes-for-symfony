@@ -1,68 +1,41 @@
+#apiVersion: apps/v1beta1
+#kind: Deployment
+#metadata:
+#  name: nginx
+#  labels:
+#    app: symfony
+#spec:
+#  replicas: 1
+#  strategy:
+#    type: Recreate
+#  template:
+#    metadata:
+#      labels:
+#        app: symfony
+#        tier: backend
+#    spec:
+#      restartPolicy: Always
+#      containers:
+#      - name: nginx
+#        image: nginx
+#        ports:
+#        - containerPort: 80
+
 apiVersion: v1
-kind: PersistentVolumeClaim
+kind: Pod
 metadata:
-  name: nginx-claim
-  labels:
-    app: symfony
+  name: nginx-pod
 spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 80Gi
----
-apiVersion: apps/v1beta1
-kind: Deployment
-metadata:
-  name: nginx
-  labels:
-    app: symfony
-spec:
-  replicas: 1
-  strategy:
-    type: Recreate
-  template:
-    metadata:
-      labels:
-        app: symfony
-        tier: backend
-    spec:
-      restartPolicy: Always
-      containers:
-      - name: nginx
-        image: nginx
-        ports:
+  volumes:
+    - name: www-storage
+      persistentVolumeClaim:
+       claimName: www-claim
+  containers:
+    - name: www-container
+      image: nginx
+      ports:
         - containerPort: 80
-        volumeMounts:
-          - mountPath: /var/log/nginx
-            name: nginx-logs-claim
-          - mountPath: /var/www/symfony
-            name: symfony-claim
-          - mountPath: /var/www/symfony/var/logs
-            name: symfony-logs-claim
-      volumes:
-      - name: nginx-logs-claim
-        persistentVolumeClaim:
-          claimName: nginx-logs-claim
-      - name: symfony-claim
-        persistentVolumeClaim:
-          claimName: symfony-claim
-      - name: symfony-logs-claim
-        persistentVolumeClaim:
-          claimName: symfony-logs-claim
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: nginx
-  labels:
-    app: symfony
-spec:
-  selector:
-    app: symfony
-    tier: backend
-  ports:
-  - protocol: TCP
-    port: 80
-    targetPort: http
-status: {}
+          name: "http-server"
+      volumeMounts:
+      - mountPath: "/usr/share/nginx/html"
+        name: www-storage
