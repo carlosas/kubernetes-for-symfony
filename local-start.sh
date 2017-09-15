@@ -65,5 +65,8 @@ if [[ $(minikube status | grep 'minikube: Running') == 'minikube: Running' ]]; t
   echo ""
   kubectl get pods
   echo ""
+  echo ""
+  echo "SERVICE ENDPOINT -> http://"$(minikube ip):$(kubectl describe service nginx-service | grep 'NodePort:' | grep -o -E '[0-9]+')
+  echo ""
 
 fi

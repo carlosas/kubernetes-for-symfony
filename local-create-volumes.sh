@@ -30,7 +30,7 @@ echo "               Kubernetes-for-Symfony"
 echo ""
 echo ""
 sleep 1
-echo "INSTALLING..."
+echo "CREATING PERSISTENT VOLUMES..."
 echo ""
 
 if [[ $(minikube status | grep 'minikube: Stopped') == 'minikube: Stopped' ]]
@@ -49,6 +49,7 @@ then
     kubectl create -f $yaml
   done
 
+  sleep 1
   echo ""
   echo ""
   echo "PERSISTENT VOLUMES:"
