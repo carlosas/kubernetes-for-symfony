@@ -7,6 +7,7 @@
 WORK IN PROGRESS :warning: **This project is not yet finished**
 
 ---
+
 ## Introduction
 
 This stack is a starting point for building a distributed and scalable stack with Kubernetes. It runs locally with Minikube, but it can be modified to use AWS or Google Cloud. Any contribution in this direction would be appreciated.
@@ -22,3 +23,11 @@ This stack is a starting point for building a distributed and scalable stack wit
 
 * `./start-and-create.sh`
 * `./stop-and-delete.sh`
+
+---
+
+## TO DO
+
+* Create a volume (PV and PVC)
+* Map the PVC to nginx's */var/www/application/*
+* Provide a way to deploy a Symfony app into the PV
