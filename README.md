@@ -35,7 +35,7 @@ This stack is a starting point for building a distributed and scalable stack wit
 kubectl get pods
 ```
 
-* Get a shell of PHP (replace POD_NAME with symfony's POD name)
+* Get a shell of PHP (replace POD_NAME with symfony's POD generated name)
 
 ```sh
 kubectl exec -it POD_NAME --container php -- /bin/bash
@@ -49,9 +49,7 @@ cd /var/www/application/ && composer install
 chmod -R 777 /var/www/application/var/cache/ /var/www/application/var/logs/ /var/www/application/var/sessions/
 ```
 
-* Exit the PHP shell
-
-<kbd>Ctrl</kbd>+<kbd>D</kbd>
+* Exit the PHP shell with <kbd>Ctrl</kbd>+<kbd>D</kbd>
 
 #### Clean up and stop the stack:
 
@@ -63,8 +61,9 @@ chmod -R 777 /var/www/application/var/cache/ /var/www/application/var/logs/ /var
 
 ## TO DO
 
-* Create a volume (PV and PVC)
-* Map the PVC to nginx's */var/www/application/*
-* Provide a way to deploy a Symfony app into the PV
+* Replace the step "Get a shell of PHP" with a one-liner command using grep
 * Support private GitHub repositories
 * Define the repo url in a config file and include the start steps into de script
+* Create a volume (PV and PVC)
+* Map the PVC to nginx's */var/www/application/*
+* Provide a way to deploy the Symfony app into the PV
