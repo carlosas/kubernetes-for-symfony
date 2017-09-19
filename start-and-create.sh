@@ -48,13 +48,9 @@ if [[ $(minikube status | grep 'minikube: Running') == 'minikube: Running' ]]; t
   kubectl create -f ./kubernetes/mysql-statefulset.yaml
   kubectl create -f ./kubernetes/mysql-service.json
   echo ""
+  URL="$(minikube service symfony --url)"
   echo ""
-  echo "PODS:"
-  echo ""
-  kubectl get pods
-  echo ""
-  echo ""
-  echo "SYMFONY ENDPOINT -> "$(minikube service symfony --url)
+  echo "SYMFONY ENDPOINT -> ${URL}"
   echo ""
 
 fi
