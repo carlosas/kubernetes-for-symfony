@@ -23,11 +23,15 @@ This stack is a starting point for building a distributed and scalable stack wit
 
 #### Build and start the stack:
 
-* `./start-and-create.sh`
+```sh
+./start-and-create.sh
+```
 
 #### Clean up and stop the stack:
 
-* `./stop-and-delete.sh`
+```sh
+./stop-and-delete.sh
+```
 
 ## Misc commands
 
