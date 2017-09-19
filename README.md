@@ -8,9 +8,25 @@ WORK IN PROGRESS :warning: **This project is not yet functional**
 
 ---
 
+## Project status
+
+- [x] Set simple POD with nginx
+- [x] Set PersistentVolume for www
+- [x] Set PersistentVolumeClaim for www
+- [x] Link nginx-pod with the PV and PVC
+- [x] Set simple Service for nginx
+- [x] Expose the Service using NodePort
+- [x] Create start script
+- [x] Create stop script
+- [x] Create volume creation script
+- [x] Create volume deletion script
+- [x] Extract endpoint out of the box
+- [ ] Mount local folder to kubernetes
+- [ ] Continue this list
+
 ## Quick guide
 
-### Install
+### Setup
 
 * `./local-create-volumes.sh`
 
