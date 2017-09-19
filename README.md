@@ -31,13 +31,10 @@ This stack is a starting point for building a distributed and scalable stack wit
 
 ### Misc commands
 
-Get a list of PODs and their status:
-
-`kubectl get pods`
-
-Get a bash of the PHP container (replace POD_NAME with symfony's POD name):
-
-`kubectl exec -it POD_NAME --container php -- /bin/bash`
+```sh
+kubectl get pods # Get a list of PODs and their status
+kubectl exec -it POD_NAME --container php -- /bin/bash # Get a shell of PHP (replace POD_NAME with symfony's POD name)
+```
 
 ---
 
