@@ -21,10 +21,10 @@ This stack is a starting point for building a distributed and scalable stack wit
 ### Setup
 
 * `minikube start`
-* `kubectl create kubernetes/symfony-deployment.yaml`
-* `kubectl create kubernetes/symfony-service.json`
-* `kubectl create kubernetes/mysql-statefulset.yaml`
-* `kubectl create kubernetes/mysql-service.json`
+* `kubectl create -f kubernetes/symfony-deployment.yaml`
+* `kubectl create -f kubernetes/symfony-service.json`
+* `kubectl create -f kubernetes/mysql-statefulset.yaml`
+* `kubectl create -f kubernetes/mysql-service.json`
 * `minikube service symfony --url`
 
 ### Clean up
