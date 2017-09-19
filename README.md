@@ -17,6 +17,7 @@ WORK IN PROGRESS :warning: **This project is not yet finished**
 
 ### Setup
 
+* `minikube start`
 * `kubectl create kubernetes/symfony-deployment.yaml`
 * `kubectl create kubernetes/symfony-service.json`
 * `kubectl create kubernetes/mysql-statefulset.yaml`
