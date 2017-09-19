@@ -18,15 +18,7 @@ This stack is a starting point for building a distributed and scalable stack wit
 * kubectl https://kubernetes.io/docs/tasks/tools/install-kubectl/
 * minikube https://kubernetes.io/docs/tasks/tools/install-minikube/
 
-### Setup
+### Usage
 
-* `minikube start`
-* `kubectl create -f kubernetes/symfony-deployment.yaml`
-* `kubectl create -f kubernetes/symfony-service.json`
-* `kubectl create -f kubernetes/mysql-statefulset.yaml`
-* `kubectl create -f kubernetes/mysql-service.json`
-* `minikube service symfony --url`
-
-### Clean up
-
+* `./start-and-create.sh`
 * `./stop-and-delete.sh`
