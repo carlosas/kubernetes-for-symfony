@@ -1,39 +1,28 @@
-# Complete Kubernetes stack for Symfony 3
+# Kubernetes stack for Symfony 3
 
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](LICENSE)
 [![contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/carlosas/kubernetes-for-symfony/issues)
 [![HitCount](http://hits.dwyl.com/carlosas/kubernetes-for-symfony.svg)](http://hits.dwyl.com/carlosas/kubernetes-for-symfony)
 
-WORK IN PROGRESS :warning: **This project is not yet functional**
+WORK IN PROGRESS :warning: **This project is not yet finished**
 
 ---
 
-## Project status
-
-- [x] Set simple POD with nginx
-- [x] Set PersistentVolume for www
-- [x] Set PersistentVolumeClaim for www
-- [x] Link nginx-pod with the PV and PVC
-- [x] Set simple Service for nginx
-- [x] Expose the Service using NodePort
-- [x] Create start script
-- [x] Create stop script
-- [x] Create volume creation script
-- [x] Create volume deletion script
-- [x] Extract endpoint out of the box
-- [ ] Mount local folder to kubernetes
-- [ ] Continue this list
-
 ## Quick guide
+
+### Requirements
+
+* kubectl https://kubernetes.io/docs/tasks/tools/install-kubectl/
+* minikube https://kubernetes.io/docs/tasks/tools/install-minikube/
 
 ### Setup
 
-* `./local-create-volumes.sh`
+* `kubectl create kubernetes/symfony-deployment.yaml`
+* `kubectl create kubernetes/symfony-service.json`
+* `kubectl create kubernetes/mysql-statefulset.yaml`
+* `kubectl create kubernetes/mysql-service.json`
+* `minikube service symfony --url`
 
-* `minikube ssh`
+### Clean up
 
-* `cat "Ola ke ase" > index.html`
-
-* <kbd>Ctrl</kbd>+<kbd>D</kbd>
-
-* `./local-start.sh`
+* `./stop-and-delete.sh`
