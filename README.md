@@ -7,6 +7,9 @@
 WORK IN PROGRESS :warning: **This project is not yet finished**
 
 ---
+## Introduction
+
+This stack is a starting point for building a distributed and scalable stack with Kubernetes. It runs locally with Minikube, but it can be modified to use AWS or Google Cloud. Any contribution in this direction would be appreciated.
 
 ## Quick guide
 
