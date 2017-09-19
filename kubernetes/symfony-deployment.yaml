@@ -1,0 +1,45 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: symfony
+
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: symfony
+      annotations:
+        pod.alpha.kubernetes.io/init-containers: '[{
+          "name": "install",
+          "image": "revsbech/symfonydemo",
+          "command": ["cp", "-a", "/var/www/application", "/"],
+          "volumeMounts": [
+            {
+                "name": "workdir",
+                "mountPath": "/application"
+            }
+          ]
+        }
+      ]'
+    spec:
+      containers:
+      - name: nginx
+        image: carlosas/nginx-symfony
+        ports:
+        - containerPort: 80
+        volumeMounts:
+         - mountPath: /var/www/application
+           name: workdir   
+      - name: php
+        image: carlosas/php-symfony
+        volumeMounts:
+         - mountPath: /var/www/application
+           name: workdir        
+#      - name: mailhog
+#        image: mailhog/mailhog
+#        ports:
+#        - containerPort: 8025
+      volumes:
+       - name: workdir
+         emptyDir: {}

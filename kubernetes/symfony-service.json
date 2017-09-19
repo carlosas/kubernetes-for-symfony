@@ -1,0 +1,29 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "symfony"
+    },
+    "spec": {
+        "selector": {
+            "app": "symfony"
+        },
+        "type": "NodePort",
+        "ports": [
+            {
+	        "name": "web",
+                "protocol": "TCP",
+                "port": 80,
+                "targetPort": 80,
+                "nodePort": 30012
+            },
+            {
+                "name": "mailhog",
+                "protocol": "TCP",
+                "port": 8025,
+                "targetPort": 8025,
+                "nodePort": 30013
+            }
+        ]
+    }
+}
