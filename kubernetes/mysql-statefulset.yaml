@@ -20,7 +20,7 @@ spec:
         image: mysql:5
         env: 
         - name: MYSQL_ROOT_PASSWORD
-          value: kaffe
+          value: "123"
         ports:
         - containerPort: 3306
           name: mysql

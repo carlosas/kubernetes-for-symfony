@@ -8,19 +8,19 @@ spec:
     metadata:
       labels:
         app: symfony
-      annotations:
-        pod.alpha.kubernetes.io/init-containers: '[{
-          "name": "install",
-          "image": "revsbech/symfonydemo",
-          "command": ["cp", "-a", "/var/www/application", "/"],
-          "volumeMounts": [
-            {
-                "name": "workdir",
-                "mountPath": "/application"
-            }
-          ]
-        }
-      ]'
+#      annotations:
+#        pod.alpha.kubernetes.io/init-containers: '[{
+#          "name": "install",
+#          "image": "revsbech/symfonydemo",
+#          "command": ["cp", "-a", "/var/www/application", "/"],
+#          "volumeMounts": [
+#            {
+#                "name": "workdir",
+#                "mountPath": "/application"
+#            }
+#          ]
+#        }
+#      ]'
     spec:
       containers:
       - name: nginx
