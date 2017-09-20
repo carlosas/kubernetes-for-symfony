@@ -52,5 +52,4 @@ if [[ $(minikube status | grep 'minikube: Running') == 'minikube: Running' ]]; t
   echo ""
   echo "SYMFONY ENDPOINT -> ${URL}"
   echo ""
-
 fi
