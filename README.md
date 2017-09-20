@@ -29,21 +29,11 @@ This stack is a starting point for building a distributed and scalable stack wit
 ./start-and-create.sh
 ```
 
-* Get a shell of the PHP container
+* Clone your repository into the www folder
 
 ```sh
-kubectl exec -it $(kubectl get pods | grep -o -E '^symfony-[0-9a-z\-]+') --container php -- /bin/bash
+./clone-my-repository.sh
 ```
-
-* Clone and prepare your Symfony application from GitHub (replace the url)
-
-```sh
-git clone https://github.com/symfony/symfony-standard.git /var/www/application/
-cd /var/www/application/ && composer install
-chmod -R 777 /var/www/application/var/cache/ /var/www/application/var/logs/ /var/www/application/var/sessions/
-```
-
-* Exit the PHP shell with <kbd>Ctrl</kbd>+<kbd>D</kbd>
 
 #### Clean up and stop the stack:
 
@@ -55,9 +45,10 @@ chmod -R 777 /var/www/application/var/cache/ /var/www/application/var/logs/ /var
 
 ## TO DO
 
-* Replace the step "Get a shell of PHP" with a one-liner command using grep
+* ~~Replace the step "Get a shell of PHP" with a one-liner command using grep~~
+* Define the repo url in a config file
+* ~~Include the start steps into a script~~
 * Support private GitHub repositories
-* Define the repo url in a config file and include the start steps into de script
 * Create a volume (PV and PVC)
 * Map the PVC to nginx's */var/www/application/*
-* Provide a way to deploy the Symfony app into the PV
+* ~~Provide a way to deploy the Symfony app into the PV~~
