@@ -34,12 +34,13 @@ echo "CHECKING..."
 echo ""
 
 if [[ $(minikube status | grep 'minikube: Stopped') == 'minikube: Stopped' ]]; then
-  echo "ERROR: Minikube is already running"
+  echo "ERROR: Minikube is not running"
 fi
 
 if [[ $(minikube status | grep 'minikube: Running') == 'minikube: Running' ]]; then
   URL="$(minikube service symfony --url)"
   echo ""
   echo "SYMFONY ENDPOINT -> ${URL}"
-  echo ""
 fi
+
+echo ""
