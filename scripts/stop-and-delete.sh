@@ -29,27 +29,26 @@ echo ""
 echo "               Kubernetes-for-Symfony"
 echo ""
 echo ""
-sleep 1
-echo "STARTING..."
+echo "STOPPING..."
 echo ""
-
-if [[ $(minikube status | grep 'minikube: Running') == 'minikube: Running' ]]; then
-  echo "WARNING: Minikube is already running"
-fi
+sleep 1
 
 if [[ $(minikube status | grep 'minikube: Stopped') == 'minikube: Stopped' ]]; then
-  minikube start
+  echo "ERROR: Minikube is not running"
 fi
 
 if [[ $(minikube status | grep 'minikube: Running') == 'minikube: Running' ]]; then
+  kubectl delete services --all
+  kubectl delete deployments --all
+  kubectl delete statefulsets --all
   echo ""
-  kubectl create -f ./kubernetes/symfony-deployment.yaml
-  kubectl create -f ./kubernetes/symfony-service.json
-  kubectl create -f ./kubernetes/mysql-statefulset.yaml
-  kubectl create -f ./kubernetes/mysql-service.json
+  while (! kubectl get pods | grep -q 'No resources found.'); do
+    echo "Waiting, PODs are not dead yet..."
+    sleep 5
+  done
+kubectl get pods
   echo ""
-  URL="$(minikube service symfony --url)"
-  echo ""
-  echo "SYMFONY ENDPOINT -> ${URL}"
+  sleep 1
+  minikube stop
   echo ""
 fi
