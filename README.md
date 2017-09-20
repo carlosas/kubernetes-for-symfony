@@ -29,16 +29,10 @@ This stack is a starting point for building a distributed and scalable stack wit
 ./start-and-create.sh
 ```
 
-* Get a list of PODs and their status
+* Get a shell of the PHP container
 
 ```sh
-kubectl get pods
-```
-
-* Get a shell of PHP (replace POD_NAME with symfony's POD generated name)
-
-```sh
-kubectl exec -it POD_NAME --container php -- /bin/bash
+kubectl exec -it $(kubectl get pods | grep -o -E '^symfony-[0-9a-z\-]+') --container php -- /bin/bash
 ```
 
 * Clone and prepare your Symfony application from GitHub (replace the url)
