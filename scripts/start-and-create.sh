@@ -41,12 +41,14 @@ if [[ $(minikube status | grep 'minikube: Stopped') == 'minikube: Stopped' ]]; t
   minikube start
 fi
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 if [[ $(minikube status | grep 'minikube: Running') == 'minikube: Running' ]]; then
   echo ""
-  kubectl create -f ./../kubernetes/symfony-deployment.yaml
-  kubectl create -f ./../kubernetes/symfony-service.json
-  kubectl create -f ./../kubernetes/mysql-statefulset.yaml
-  kubectl create -f ./../kubernetes/mysql-service.json
+  kubectl create -f $DIR/../kubernetes/symfony-deployment.yaml
+  kubectl create -f $DIR/../kubernetes/symfony-service.json
+  kubectl create -f $DIR/../kubernetes/mysql-statefulset.yaml
+  kubectl create -f $DIR/../kubernetes/mysql-service.json
   echo ""
   URL="$(minikube service symfony --url)"
   echo ""
