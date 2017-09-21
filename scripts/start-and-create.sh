@@ -43,10 +43,10 @@ fi
 
 if [[ $(minikube status | grep 'minikube: Running') == 'minikube: Running' ]]; then
   echo ""
-  kubectl create -f ../kubernetes/symfony-deployment.yaml
-  kubectl create -f ../kubernetes/symfony-service.json
-  kubectl create -f ../kubernetes/mysql-statefulset.yaml
-  kubectl create -f ../kubernetes/mysql-service.json
+  kubectl create -f ./../kubernetes/symfony-deployment.yaml
+  kubectl create -f ./../kubernetes/symfony-service.json
+  kubectl create -f ./../kubernetes/mysql-statefulset.yaml
+  kubectl create -f ./../kubernetes/mysql-service.json
   echo ""
   URL="$(minikube service symfony --url)"
   echo ""

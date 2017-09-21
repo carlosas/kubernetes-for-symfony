@@ -42,12 +42,10 @@ if [[ $(minikube status | grep 'minikube: Running') == 'minikube: Running' ]]; t
   kubectl delete deployments --all
   kubectl delete statefulsets --all
   echo ""
-  while (! kubectl get pods | grep -q 'No resources found.'); do
-    echo "Waiting, PODs are not dead yet..."
+  while ([[ $(kubectl get pods | grep "No resources found.") == "No resources found." ]]); do
+    echo "Waiting, pods are not dead yet..."
     sleep 5
   done
-kubectl get pods
-  echo ""
   sleep 1
   minikube stop
   echo ""
