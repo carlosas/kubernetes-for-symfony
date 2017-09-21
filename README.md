@@ -46,9 +46,10 @@ This stack is a starting point for building a distributed and scalable stack wit
 ## TO DO
 
 * ~~Replace the step "Get a shell of PHP" with a one-liner command using grep~~
-* Define the repo url in a config file
+* Define the repository url in a config file
 * ~~Include the start steps into a script~~
 * Support private GitHub repositories
 * Create a volume (PV and PVC)
 * Map the PVC to nginx's */var/www/application/*
 * ~~Provide a way to deploy the Symfony app into the PV~~
+* Integrate a deployment method (jenkins?)
