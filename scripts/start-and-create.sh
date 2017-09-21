@@ -49,13 +49,14 @@ if [[ $(minikube status | grep 'minikube: Running') == 'minikube: Running' ]]; t
   kubectl create -f $DIR/../kubernetes/symfony/service.json
   kubectl create -f $DIR/../kubernetes/mysql/statefulset.yaml
   kubectl create -f $DIR/../kubernetes/mysql/service.json
-#  kubectl create -f $DIR/../kubernetes/jenkins/deployment.yaml
-#  kubectl create -f $DIR/../kubernetes/jenkins/service.yaml
+  kubectl create secret generic jenkins --from-file=$DIR/../kubernetes/jenkins/options
+  kubectl create -f $DIR/../kubernetes/jenkins/deployment.yaml
+  kubectl create -f $DIR/../kubernetes/jenkins/service.yaml
   echo ""
   URL_SYMFONY="$(minikube service symfony --url)"
-#  URL_JENKINS="$(minikube service jenkins --url)"
+  URL_JENKINS="$(minikube service jenkins --url)"
   echo ""
   echo "SYMFONY ENDPOINT -> ${URL_SYMFONY}"
-#  echo "JENKINS ENDPOINT -> ${URL_JENKINS}"
+  echo "JENKINS ENDPOINT -> ${URL_JENKINS}"
   echo ""
 fi

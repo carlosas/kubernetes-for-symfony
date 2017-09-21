@@ -23,5 +23,5 @@ spec:
          - mountPath: /var/www/application
            name: workdir        
       volumes:
-       - name: workdir
-         emptyDir: {}
+      - name: workdir
+        emptyDir: {}
