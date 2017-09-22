@@ -26,10 +26,16 @@ This stack is a starting point for building a distributed and scalable stack wit
 * Start the stack
 
 ```sh
-./start-and-create.sh
+./scripts/start-and-create.sh
 ```
 
-* Clone your repository into the www folder
+* Retrieve the ip of the cluster service "mysql"
+
+```sh
+./scripts/get-service-endpoints.sh
+```
+
+* Clone your repository into the stack *(set the database ip you just retrieved!)*
 
 ```sh
 ./clone-my-repository.sh
