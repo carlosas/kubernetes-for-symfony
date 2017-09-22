@@ -38,9 +38,13 @@ if [[ $(minikube status | grep 'minikube: Stopped') == 'minikube: Stopped' ]]; t
 fi
 
 if [[ $(minikube status | grep 'minikube: Running') == 'minikube: Running' ]]; then
-  URL="$(minikube service symfony --url)"
+  URL_SYMFONY="$(minikube service symfony --url)"
+  URL_JENKINS="$(minikube service jenkins --url)"
   echo ""
-  echo "SYMFONY ENDPOINT -> ${URL}"
+  kubectl get services
+  echo ""
+  echo "SYMFONY ENDPOINT -> ${URL_SYMFONY}"
+  echo "JENKINS ENDPOINT -> ${URL_JENKINS}"
 fi
 
 echo ""
