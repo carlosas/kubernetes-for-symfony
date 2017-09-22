@@ -38,13 +38,13 @@ This stack is a starting point for building a distributed and scalable stack wit
 * Clone your repository into the stack *(set the database ip you just retrieved!)*
 
 ```sh
-./clone-my-repository.sh
+./scripts/clone-my-repository.sh
 ```
 
 #### Clean up and stop the stack:
 
 ```sh
-./stop-and-delete.sh
+./scripts/stop-and-delete.sh
 ```
 
 ---
