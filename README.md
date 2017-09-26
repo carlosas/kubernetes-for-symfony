@@ -29,7 +29,7 @@ This stack is a starting point for building a distributed and scalable stack wit
 ./scripts/start-and-create.sh
 ```
 
-* Retrieve the ip of the cluster service "mysql"
+* Retrieve the ips of the cluster services
 
 ```sh
 ./scripts/get-service-endpoints.sh
