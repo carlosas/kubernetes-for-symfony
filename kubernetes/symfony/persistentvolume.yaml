@@ -12,4 +12,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /home/carlosas/devops/kubernetes-for-symfony/tmp
+    path: /data
