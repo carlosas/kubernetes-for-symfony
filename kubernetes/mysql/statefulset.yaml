@@ -22,7 +22,7 @@ spec:
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: secret
+              name: secrets
               key: mysql_root_password
         ports:
         - containerPort: 3306
