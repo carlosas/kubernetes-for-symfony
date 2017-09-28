@@ -1,8 +1,18 @@
-# Kubernetes stack for Symfony 3
+# Kubernetes for Symfony
 
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](LICENSE)
 [![contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/carlosas/kubernetes-for-symfony/issues)
 [![HitCount](http://hits.dwyl.com/carlosas/kubernetes-for-symfony.svg)](README.md)
+
+---
+
+This repository has three core branches:
+
+* **master: local deployment branch *(current)***
+* gce: Google Cloud Engine branch
+* aws: Amazon Web Services branch
+
+---
 
 WORK IN PROGRESS :warning: **This project is not yet finished**
 
@@ -71,6 +81,6 @@ echo -n "MYPASSWORD" | base64
 * Define the repository url in a config file
 * Support private GitHub repositories
 * ~~Integrate a deployment method (jenkins?)~~
-* Create a volume (PV and PVC)
-* Map the PVC to nginx's */var/www/application/*
+~~* Create a volume (PV and PVC)~~
+~~* Map the PVC to nginx's */var/www/application/*~~
 * Create an AWS-ready branch
