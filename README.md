@@ -8,9 +8,9 @@
 
 This repository has three core branches:
 
-* **master: local deployment branch *(current)***
-* gce: Google Cloud Engine branch
-* aws: Amazon Web Services branch
+* [master](https://github.com/carlosas/kubernetes-for-symfony/tree/master): local deployment branch *(current)***
+* [aws](https://github.com/carlosas/kubernetes-for-symfony/tree/aws): Amazon Web Services branch
+* [gce](https://github.com/carlosas/kubernetes-for-symfony/tree/gce): Google Compute Engine branch  
 
 ---
 
@@ -81,6 +81,5 @@ echo -n "MYPASSWORD" | base64
 * Define the repository url in a config file
 * Support private GitHub repositories
 * ~~Integrate a deployment method (jenkins?)~~
-~~* Create a volume (PV and PVC)~~
-~~* Map the PVC to nginx's */var/www/application/*~~
-* Create an AWS-ready branch
+* ~~Create a volume (PV and PVC)~~
+* ~~Map the PVC to nginx's */var/www/application/*~~
