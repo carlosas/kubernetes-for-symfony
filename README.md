@@ -10,7 +10,7 @@ This repository has three core branches:
 
 * **[master](https://github.com/carlosas/kubernetes-for-symfony/tree/master): local deployment branch *(current)***
 * [aws](https://github.com/carlosas/kubernetes-for-symfony/tree/aws): Amazon Web Services branch
-* [gce](https://github.com/carlosas/kubernetes-for-symfony/tree/gce): Google Compute Engine branch  
+* [gce](https://github.com/carlosas/kubernetes-for-symfony/tree/gce): Google Compute Engine branch
 
 ---
 
@@ -20,7 +20,7 @@ WORK IN PROGRESS :warning: **This project is not yet finished**
 
 ## Introduction
 
-This stack is a starting point for building a distributed and scalable stack with Kubernetes. It runs locally with Minikube, but it can be modified to use AWS or Google Cloud. Any contribution in this direction would be appreciated.
+This stack is a starting point for building a distributed and scalable stack with Kubernetes. It runs locally with Minikube, but it can be modified to use AWS or GCE. Any contribution in this direction would be appreciated.
 
 ## Quick guide
 
