@@ -1,3 +1,18 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-webroot
+  labels:
+    app: symfony
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+
+---
+
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
@@ -15,8 +30,8 @@ spec:
         ports:
         - containerPort: 80
         volumeMounts:
-         - mountPath: /var/www/application
-           name: workdir   
+        - mountPath: /var/www/application
+          name: workdir   
       - name: php
         image: carlosas/phpfpm-symfony
         volumeMounts:
@@ -24,4 +39,6 @@ spec:
            name: workdir        
       volumes:
       - name: workdir
-        emptyDir: {}
+#        emptyDir: {}
+        persistentVolumeClaim:
+          claimName: pvc-webroot

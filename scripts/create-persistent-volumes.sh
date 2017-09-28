@@ -33,32 +33,14 @@ sleep 1
 echo "STARTING..."
 echo ""
 
-if [[ $(minikube status | grep 'minikube: Running') == 'minikube: Running' ]]; then
-  echo "WARNING: Minikube is already running"
-fi
-
 if [[ $(minikube status | grep 'minikube: Stopped') == 'minikube: Stopped' ]]; then
-  minikube start
+  echo "ERROR: Minikube is not running"
 fi
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 if [[ $(minikube status | grep 'minikube: Running') == 'minikube: Running' ]]; then
   echo ""
-#  kubectl create -f $DIR/../kubernetes/symfony/persistentvolume.yaml
-  kubectl create -f $DIR/../kubernetes/symfony/deployment.yaml
-  kubectl create -f $DIR/../kubernetes/symfony/service.json
-  kubectl create -f $DIR/../kubernetes/mysql/statefulset.yaml
-  kubectl create -f $DIR/../kubernetes/mysql/service.json
-  kubectl create -f $DIR/../kubernetes/secrets.yaml
-#  kubectl create secret generic jenkins --from-file=$DIR/../kubernetes/jenkins/options
-  kubectl create -f $DIR/../kubernetes/jenkins/deployment.yaml
-  kubectl create -f $DIR/../kubernetes/jenkins/service.yaml
-  echo ""
-  URL_SYMFONY="$(minikube service symfony --url)"
-  URL_JENKINS="$(minikube service jenkins --url)"
-  echo ""
-  echo "SYMFONY ENDPOINT -> ${URL_SYMFONY}"
-  echo "JENKINS ENDPOINT -> ${URL_JENKINS}"
+  kubectl create -f $DIR/../kubernetes/symfony/persistentvolume.yaml
   echo ""
 fi

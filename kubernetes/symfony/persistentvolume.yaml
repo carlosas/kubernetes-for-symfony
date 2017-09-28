@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-webroot
+  labels:
+    type: local
+#  annotations:
+#    pv.beta.kubernetes.io/gid: "webfiles"
+spec:
+  capacity:
+    storage: 50Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /home/carlosas/devops/kubernetes-for-symfony/tmp

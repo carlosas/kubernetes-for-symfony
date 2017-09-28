@@ -37,6 +37,12 @@ echo -n "MYPASSWORD" | base64
 ./scripts/start-and-create.sh
 ```
 
+* Create local persistent volumes
+
+```sh
+./scripts/create-persistent-volumes.sh
+```
+
 * Retrieve the ips of the cluster services
 
 ```sh

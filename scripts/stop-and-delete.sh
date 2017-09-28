@@ -42,6 +42,7 @@ if [[ $(minikube status | grep 'minikube: Running') == 'minikube: Running' ]]; t
   kubectl delete deployments --all
   kubectl delete statefulsets --all
   kubectl delete secrets --all
+  kubectl delete persistentvolumeclaims --all
   echo ""
   while ([[ $(kubectl get pods | grep "No resources found.") == "No resources found." ]]); do
     echo "Waiting, pods are not dead yet..."
