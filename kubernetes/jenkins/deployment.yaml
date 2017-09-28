@@ -7,7 +7,7 @@ spec:
   template:
     metadata:
       labels:
-        app: master
+        app: symfony
     spec: 
       containers: 
       - name: jenkins
@@ -19,8 +19,8 @@ spec:
         - name: JENKINS_OPTS
           valueFrom:
             secretKeyRef:
-              name: jenkins
-              key: options
+              name: secrets
+              key: jenkins_options
         volumeMounts:
         - mountPath: /var/jenkins_home
           name: jenkins-home
