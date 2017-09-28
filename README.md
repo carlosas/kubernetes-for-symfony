@@ -23,6 +23,14 @@ This stack is a starting point for building a distributed and scalable stack wit
 
 #### Build and start the stack:
 
+* Define your passwords in *kubernetes/secrets.yaml*, encrypted in base64:
+
+```sh
+echo -n "MYPASSWORD" | base64
+```
+
+> For Jenkins encrypt: `--argumentsRealm.passwd.jenkins=MYPASSWORD --argumentsRealm.roles.jenkins=admin`
+
 * Start the stack
 
 ```sh
@@ -52,10 +60,11 @@ This stack is a starting point for building a distributed and scalable stack wit
 ## TO DO
 
 * ~~Replace the step "Get a shell of PHP" with a one-liner command using grep~~
-* Define the repository url in a config file
 * ~~Include the start steps into a script~~
+* ~~Provide a way to manually deploy the Symfony app~~
+* Define the repository url in a config file
 * Support private GitHub repositories
+* ~~Integrate a deployment method (jenkins?)~~
 * Create a volume (PV and PVC)
 * Map the PVC to nginx's */var/www/application/*
-* ~~Provide a way to deploy the Symfony app into the PV~~
-* Integrate a deployment method (jenkins?)
+* Create an AWS-ready branch
