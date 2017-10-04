@@ -53,10 +53,12 @@ if [[ $(minikube status | grep 'minikube: Running') == 'minikube: Running' ]]; t
   kubectl create -f $DIR/../kubernetes/jenkins/deployment.yaml
   kubectl create -f $DIR/../kubernetes/jenkins/service.yaml
   echo ""
-  URL_SYMFONY="$(minikube service symfony --url)"
+  URL_HTTP="$(minikube service symfony --url | sed -n '1 p')"
+  URL_HTTPS="$(minikube service symfony --url | sed -n '2 p')"
   URL_JENKINS="$(minikube service jenkins --url)"
   echo ""
-  echo "SYMFONY ENDPOINT -> ${URL_SYMFONY}"
+  echo "SYMFONY HTTP ENDPOINT -> ${URL_HTTP}"
+  echo "SYMFONY HTTPS ENDPOINT -> ${URL_HTTPS}"
   echo "JENKINS ENDPOINT -> ${URL_JENKINS}"
   echo ""
 fi
