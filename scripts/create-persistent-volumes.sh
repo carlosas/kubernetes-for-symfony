@@ -41,6 +41,6 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 if [[ $(minikube status | grep 'minikube: Running') == 'minikube: Running' ]]; then
   echo ""
-  kubectl create -f $DIR/../kubernetes/symfony/persistentvolume.yaml
+  kubectl create -f $DIR/../kubernetes/persistence.yaml
   echo ""
 fi
