@@ -53,13 +53,7 @@ echo -n "MYPASSWORD" | base64
 ./scripts/create-persistent-volumes.sh
 ```
 
-* Retrieve the ips of the cluster services
-
-```sh
-./scripts/get-service-endpoints.sh
-```
-
-* Clone your repository into the stack *(set the database ip you just retrieved!)*
+* Clone your repository into the stack *(set 'mysql' as database host)*
 
 ```sh
 ./scripts/clone-my-repository.sh
