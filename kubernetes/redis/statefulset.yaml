@@ -1,0 +1,31 @@
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: redis
+spec:
+  serviceName: redis
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: redis
+        image: redis:3-alpine
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 6379
+          name: redis
+        volumeMounts:
+        - name: redisdata
+          mountPath: /redisdata
+  volumeClaimTemplates:
+  - metadata:
+      name: redisdata
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 5Gi
