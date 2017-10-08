@@ -4,6 +4,12 @@
 [![contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/carlosas/kubernetes-for-symfony/issues)
 [![HitCount](http://hits.dwyl.com/carlosas/kubernetes-for-symfony.svg)](README.md)
 
+![](doc/schema.png)
+
+---
+
+WORK IN PROGRESS :warning: **This project is not yet finished**
+
 ---
 
 This repository has three core branches:
@@ -11,10 +17,6 @@ This repository has three core branches:
 * **[master](https://github.com/carlosas/kubernetes-for-symfony/tree/master): local deployment branch *(current)***
 * [aws](https://github.com/carlosas/kubernetes-for-symfony/tree/aws): Amazon Web Services branch
 * [gce](https://github.com/carlosas/kubernetes-for-symfony/tree/gce): Google Compute Engine branch
-
----
-
-WORK IN PROGRESS :warning: **This project is not yet finished**
 
 ---
 
