@@ -8,15 +8,7 @@
 
 ---
 
-WORK IN PROGRESS :warning: **This project is not yet finished**
-
----
-
-This repository has three core branches:
-
-* **[master](https://github.com/carlosas/kubernetes-for-symfony/tree/master): local deployment branch *(current)***
-* [aws](https://github.com/carlosas/kubernetes-for-symfony/tree/aws): Amazon Web Services branch
-* [gce](https://github.com/carlosas/kubernetes-for-symfony/tree/gce): Google Compute Engine branch
+WARNING :warning: **This project is no longer maintained (for now)**
 
 ---
 
@@ -66,16 +58,3 @@ echo -n "MYPASSWORD" | base64
 ```sh
 ./scripts/stop-and-delete.sh
 ```
-
----
-
-## TO DO
-
-* ~~Replace the step "Get a shell of PHP" with a one-liner command using grep~~
-* ~~Include the start steps into a script~~
-* ~~Provide a way to manually deploy the Symfony app~~
-* Define the repository url in a config file
-* Support private GitHub repositories
-* ~~Integrate a deployment method (jenkins?)~~
-* ~~Create a volume (PV and PVC)~~
-* ~~Map the PVC to nginx's */var/www/application/*~~
